@@ -8,5 +8,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$twilio = new Services_Twilio($config['sid'], $config['token']);
 		return $twilio;
 	}
+	
+	protected function _initCurrency()
+	{
+        $currency = new Zend_Currency('en_US');
+        Zend_Registry::set('Zend_Currency', $currency);        
+	}
 }
 
