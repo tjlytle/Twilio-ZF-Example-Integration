@@ -1,0 +1,15 @@
+<Response>
+<?php if($this->order):?>
+    <Say>
+        Order: <?php echo $this->escape($this->order->order)?>.
+        Name: <?php echo $this->escape($this->order->name)?>.
+        Date: <?php echo $this->order->date->format('l F jS')?>.
+        Amount: <?php echo $this->order->amount?> gadgets.
+        Total: <?php echo $this->currency($this->order->total)?>
+    </Say>
+<?php else:?>
+    <Gather action='<?php echo $this->url()?>'>
+        <Say>Enter order number.</Say>
+    </Gather>
+<?php endif;?>
+</Response>
